@@ -20,6 +20,10 @@ gui.remember(obj);
 
 gui.add(obj, 'angle').min(0).max(360).step(1);
 
+const ball2 = new Ball();
+let ax2 = 0.1;
+let vx2 = 0.4;
+
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let vx = Math.cos(obj.angle * Math.PI / 180) * pixelPerFrame;
@@ -42,6 +46,10 @@ function animate() {
 
     arrow.rotation = angle;
     arrow.draw(ctx);
+
+    vx2 += ax2;
+    ball2.x += vx2;
+    ball2.draw(ctx);
 
     requestAnimationFrame(animate);
 }
